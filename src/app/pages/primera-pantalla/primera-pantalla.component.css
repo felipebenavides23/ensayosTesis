@@ -1,0 +1,32 @@
+.container-general {
+  width: 100%;
+  height: 100vh;
+  color: white;
+}
+
+
+.container-p1 {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.titulo-p1 {
+  font-size: 7em;
+  text-align: center;
+}
+
+@media (max-width:1000px) {
+  .titulo-p1 {
+    font-size: 5em;
+  }
+}
+
+@media (max-width:450px) {
+  .titulo-p1 {
+    font-size: 3em;
+  }
+}

@@ -1,0 +1,75 @@
+<div class="container-general">
+  <div class="containar-p2">
+    <p class="titulo-p2" *ngIf="dataPrueba.tipoApuesta === 'Ganancia'">
+      Guarda {{ dataPrueba.valor | currency : "USD" }}
+    </p>
+    <p class="titulo-p2" *ngIf="dataPrueba.tipoApuesta === 'Perdida'">
+      Pierde {{ dataPrueba.valor | currency : "USD" }}
+    </p>
+    <p class="titulo-p2">ó</p>
+    <!-- style="display: block" -->
+    <div class="container-canva">
+      <canvas
+        baseChart
+        [type]="'pie'"
+        [datasets]="pieChartDatasets"
+        [labels]="pieChartLabels"
+        [options]="pieChartOptions"
+        [plugins]="pieChartPlugins"
+        [legend]="pieChartLegend"
+      >
+      </canvas>
+
+      <p class="perder">tienes un {{ porcentajes[0] }}% de perder todo</p>
+      <p class="ganar">tienes un {{ porcentajes[1] }}% de ganar todo</p>
+    </div>
+  </div>
+  <div class="container-botones">
+    <button
+      type="button"
+      class="btn btn-light botones"
+      (click)="detenerTiempo('guardar')"
+    >
+      1
+    </button>
+    <button
+      type="button"
+      class="btn btn-light botones"
+      (click)="detenerTiempo('perder')"
+    >
+      2
+    </button>
+  </div>
+</div>
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Atención!</h4>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="d('Cross click')"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <p>Aquí observas dos opciones de respuesta:</p>
+
+    <p>Opción 1: te indica con certeza lo que pasará con tu dinero.</p>
+    <p>
+      Opción2: te indica un rango de probabilidades de lo que le puede ocurrir a
+      tu dinero si la escoges.
+    </p>
+
+    <p>Por favor selecciona dando clic sobre la opción que deseas</p>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-outline-dark"
+      (click)="c('Save click')"
+    >
+      Continuar
+    </button>
+  </div>
+</ng-template>

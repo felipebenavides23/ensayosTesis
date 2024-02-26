@@ -1,0 +1,19 @@
+<div class="container-general">
+  <div *ngFor="let pruebas of datosEnsayos.data; index as i">
+    <div *ngIf="numeroPrueba === i">
+      <app-primera-pantalla
+        [dataPrueba]="pruebas"
+        (estadaPantalla)="cambiarPantalla()"
+        *ngIf="verPantalla"
+      ></app-primera-pantalla>
+      <app-segunda-pantalla
+        *ngIf="!verPantalla"
+        [dataPrueba]="pruebas"
+        [tipoPrueba]="dataTipoEnsayo"
+        [index]="i"
+        [cantidadDatos]="datosEnsayos.data.length"
+        (respuesta)="respuestas($event)"
+      ></app-segunda-pantalla>
+    </div>
+  </div>
+</div>

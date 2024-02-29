@@ -1,11 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Iensayos, ETipoEnsayos } from '../module/prubas';
-import { DatosService } from '../service/datos.service';
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { Iensayos, ETipoEnsayos } from "../module/prubas";
+import { DatosService } from "../service/datos.service";
 
 @Component({
-  selector: 'app-pages',
-  templateUrl: './pages.component.html',
-  styleUrls: ['./pages.component.css'],
+  selector: "app-pages",
+  templateUrl: "./pages.component.html",
+  styleUrls: ["./pages.component.css"],
 })
 export class PagesComponent implements OnInit {
   @Input() tipoEnsayo: string;
@@ -38,7 +38,7 @@ export class PagesComponent implements OnInit {
       case ETipoEnsayos.ENTRENAMIENTO:
         this.dataTipoEnsayo = ETipoEnsayos.ENTRENAMIENTO;
         dataEncontrada = this.dataEnsayo.filter(
-          (ensayo) => ensayo.prueba === ETipoEnsayos.VERIFICACION
+          (ensayo) => ensayo.prueba === ETipoEnsayos.ENTRENAMIENTO
         );
         this.datosEnsayos = dataEncontrada[0];
 
@@ -46,7 +46,7 @@ export class PagesComponent implements OnInit {
       case ETipoEnsayos.EXPERIMENTAL:
         this.dataTipoEnsayo = ETipoEnsayos.EXPERIMENTAL;
         dataEncontrada = this.dataEnsayo.filter(
-          (ensayo) => ensayo.prueba === ETipoEnsayos.VERIFICACION
+          (ensayo) => ensayo.prueba === ETipoEnsayos.EXPERIMENTAL
         );
         this.datosEnsayos = dataEncontrada[0];
         break;

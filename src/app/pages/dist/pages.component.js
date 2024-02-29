@@ -28,12 +28,12 @@ var PagesComponent = /** @class */ (function () {
                 break;
             case prubas_1.ETipoEnsayos.ENTRENAMIENTO:
                 this.dataTipoEnsayo = prubas_1.ETipoEnsayos.ENTRENAMIENTO;
-                dataEncontrada = this.dataEnsayo.filter(function (ensayo) { return ensayo.prueba === prubas_1.ETipoEnsayos.VERIFICACION; });
+                dataEncontrada = this.dataEnsayo.filter(function (ensayo) { return ensayo.prueba === prubas_1.ETipoEnsayos.ENTRENAMIENTO; });
                 this.datosEnsayos = dataEncontrada[0];
                 break;
             case prubas_1.ETipoEnsayos.EXPERIMENTAL:
                 this.dataTipoEnsayo = prubas_1.ETipoEnsayos.EXPERIMENTAL;
-                dataEncontrada = this.dataEnsayo.filter(function (ensayo) { return ensayo.prueba === prubas_1.ETipoEnsayos.VERIFICACION; });
+                dataEncontrada = this.dataEnsayo.filter(function (ensayo) { return ensayo.prueba === prubas_1.ETipoEnsayos.EXPERIMENTAL; });
                 this.datosEnsayos = dataEncontrada[0];
                 break;
             default:
@@ -88,9 +88,9 @@ var PagesComponent = /** @class */ (function () {
     ], PagesComponent.prototype, "respuestasGeneral");
     PagesComponent = __decorate([
         core_1.Component({
-            selector: 'app-pages',
-            templateUrl: './pages.component.html',
-            styleUrls: ['./pages.component.css']
+            selector: "app-pages",
+            templateUrl: "./pages.component.html",
+            styleUrls: ["./pages.component.css"]
         })
     ], PagesComponent);
     return PagesComponent;

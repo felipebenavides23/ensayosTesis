@@ -1,16 +1,30 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class DatosService {
   constructor(private httpCliente: HttpClient) {}
 
   public listarEnsayos() {
     let url =
-      'https://73g6i1sclj.execute-api.us-east-2.amazonaws.com/listar-ensayos';
+      "https://73g6i1sclj.execute-api.us-east-2.amazonaws.com/listar-ensayos";
+    return this.httpCliente
+      .get(url)
+      .toPromise()
+      .then((respuesta) => {
+        return respuesta;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+  public validarDocumento(documento) {
+    let url =
+      "https://73g6i1sclj.execute-api.us-east-2.amazonaws.com/ver-documento/" +
+      documento;
     return this.httpCliente
       .get(url)
       .toPromise()
@@ -24,7 +38,7 @@ export class DatosService {
 
   public guaradaRespuestas(data) {
     let url =
-      'https://73g6i1sclj.execute-api.us-east-2.amazonaws.com/guardar-registro';
+      "https://73g6i1sclj.execute-api.us-east-2.amazonaws.com/guardar-registro";
 
     const pdata = JSON.stringify(data);
     return this.httpCliente

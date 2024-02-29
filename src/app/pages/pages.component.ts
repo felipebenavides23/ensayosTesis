@@ -38,7 +38,7 @@ export class PagesComponent implements OnInit {
       case ETipoEnsayos.ENTRENAMIENTO:
         this.dataTipoEnsayo = ETipoEnsayos.ENTRENAMIENTO;
         dataEncontrada = this.dataEnsayo.filter(
-          (ensayo) => ensayo.prueba === ETipoEnsayos.ENTRENAMIENTO
+          (ensayo) => ensayo.prueba === ETipoEnsayos.VERIFICACION
         );
         this.datosEnsayos = dataEncontrada[0];
 
@@ -46,7 +46,7 @@ export class PagesComponent implements OnInit {
       case ETipoEnsayos.EXPERIMENTAL:
         this.dataTipoEnsayo = ETipoEnsayos.EXPERIMENTAL;
         dataEncontrada = this.dataEnsayo.filter(
-          (ensayo) => ensayo.prueba === ETipoEnsayos.EXPERIMENTAL
+          (ensayo) => ensayo.prueba === ETipoEnsayos.VERIFICACION
         );
         this.datosEnsayos = dataEncontrada[0];
         break;

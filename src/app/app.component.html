@@ -22,14 +22,21 @@
             class="form-text mensaje-error"
             *ngIf="documento?.errors?.['required'] && documento?.touched"
           >
-            ingresar el numero de documento el obligatorio
+            Ingresar el numero de documento el obligatorio
           </div>
           <div
             id="errorNumeros"
             class="form-text mensaje-error"
             *ngIf="documento?.errors?.['pattern']"
           >
-            el campo solo recibe numero porfavor varificar
+            El campo solo recibe numero porfavor varificar
+          </div>
+          <div
+            id="errorMin"
+            class="form-text mensaje-error"
+            *ngIf="documento?.errors?.['minlength']"
+          >
+            El documento debe tener mas de 6 caracteres
           </div>
         </div>
         <button
@@ -52,7 +59,7 @@
             ></button>
           </div>
           <div class="modal-body">
-            <p>
+            <p *ngIf="estadoBotones">
               Estimado participante: A continuación, se le presentará una serie
               de tareas sencillas, en las que hipotéticamente se le dará una
               suma de dinero específica, posteriormente, usted deberá elegir
@@ -61,6 +68,12 @@
               demasiado tiempo a la hora de elegir entre las opciones sugeridas;
               si tiene alguna duda adicional, comuníquese con los investigadores
               a cargo.
+            </p>
+            <p *ngIf="!estadoBotones && !documentoValidar.existe">
+              Gracias por su participacion
+            </p>
+            <p *ngIf="!estadoBotones && documentoValidar.existe">
+              el usuario con este documento ya participo
             </p>
           </div>
           <div class="modal-footer">

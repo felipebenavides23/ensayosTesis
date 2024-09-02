@@ -28,7 +28,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 para realizar el despliegue se utiliza la libreria angular-cli-ghpages
 
-ng deploy --base-href=/<repositoryname>/
+ng deploy --base-href=/repositoryname/
 
 para correccion de error de despliegue
 
